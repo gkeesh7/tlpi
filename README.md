@@ -7,8 +7,7 @@ Coding exercises from the The linux programming interface book
 	- open()
 	- read()
 	- write()
-		- An important thing to make a note of is that since the kernel performs buffering of Disk I/O, So while dealing with disk files a successful return from write() doesn't guarantee that data has been transferred to disk
-		-  
+		- An important thing to make a note of is that since the kernel performs buffering of Disk I/O, So while dealing with disk files a successful return from write() doesn't guarantee that data has been transferred to disk  
 	- close()
 	- lseek()
 	- ioctl()
