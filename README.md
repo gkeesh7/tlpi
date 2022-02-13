@@ -4,6 +4,7 @@ Coding exercises from the The linux programming interface book
 
 ## Chapter 4 Notes
    * syscalls
+
 	* open()
 
 	* read()
