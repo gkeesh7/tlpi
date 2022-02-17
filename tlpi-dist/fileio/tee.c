@@ -17,20 +17,25 @@ main(int argc, char *argv[])
 {
     size_t len;
     off_t offset;
-    int fd, ap, j;
+    int fdwr,fdr = STDIN_FILENO, op, j;
     unsigned char *buf;
 
-    if (strcmp(argv[1], "--help") == 0)
+    if (argc < 2 || strcmp(argv[1], "--help") == 0)
         usageErr("%s file ...\n",argv[0]);
 
-    fd = open(argv[1], O_RDWR | O_CREAT,
+    if (argc >  1){
+    	fdwr = open(argv[1], O_RDWR | O_CREAT,
                 S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP |
-                S_IROTH | S_IWOTH);                     /* rw-rw-rw- */
-    if (fd == -1)
+                S_IROTH | S_IWOTH);
+    }
+    else {
+    	fdwr = STDOUT_FILENO;
+    }
+    if (fdwr == -1)
         errExit("open");
 
 
-    if (close(fd) == -1)
+    if (close(fdwr) == -1)
         errExit("close");
 
     exit(EXIT_SUCCESS);
